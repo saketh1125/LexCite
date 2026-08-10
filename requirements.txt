@@ -1,5 +1,5 @@
 langgraph>=1.2
-pinecone-client>=6.0
+pinecone>=6.0
 openai>=2.53
 fastapi>=0.141
 uvicorn>=0.52
