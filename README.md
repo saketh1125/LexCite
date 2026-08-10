@@ -20,7 +20,7 @@ retrieved chunk — the system refuses to guess.
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env        # fill in Pinecone, embedding, and DeepSeek keys
+cp .env.example .env        # fill in Pinecone, embedding, and NVIDIA NIM keys
 python scripts/ingest_cli.py
 uvicorn src.api.server:app --reload
 ```
