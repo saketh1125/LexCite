@@ -6,16 +6,18 @@ from typing import Optional
 from openai import OpenAI
 
 from src.config import (
-    DEEPSEEK_API_KEY,
-    DEEPSEEK_BASE_URL,
-    DEEPSEEK_MODEL,
     MAX_ATTEMPTS,
+    NIM_API_KEY,
+    NIM_BASE_URL,
+    NIM_MODEL,
+    NIM_RPM_LIMIT,
     REASONING_EFFORT,
     TOP_K,
 )
 from src.graph.state import AgentState
 from src.ingest.embedder import Embedder
 from src.ingest.pinecone_client import VectorStore
+from src.rate_limit import RateLimiter
 
 logger = logging.getLogger("lexcite")
 
@@ -74,10 +76,12 @@ class GraphDeps:
     def __init__(self) -> None:
         self.embedder = Embedder()
         self.vectorstore = VectorStore()
-        self.llm = OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
-        self.model = DEEPSEEK_MODEL
+        self.llm = OpenAI(api_key=NIM_API_KEY, base_url=NIM_BASE_URL)
+        self.model = NIM_MODEL
+        self.rate_limiter = RateLimiter(NIM_RPM_LIMIT)
 
     def chat(self, system: str, user: str) -> str:
+        self.rate_limiter.acquire()
         kwargs = {}
         if REASONING_EFFORT:
             kwargs["extra_body"] = {"reasoning_effort": REASONING_EFFORT}
