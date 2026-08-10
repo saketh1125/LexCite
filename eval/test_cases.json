@@ -1,0 +1,15 @@
+[
+  {"id": 1, "question": "What is the notice period in Priya Nambiar's employment agreement?", "type": "single-source", "covered_by": ["02_employment_agreement_excerpt.md"], "pass": null, "note": ""},
+  {"id": 2, "question": "How long after leaving Bluecrest Analytics may Priya Nambiar not work for a competitor?", "type": "single-source", "covered_by": ["02_employment_agreement_excerpt.md"], "pass": null, "note": ""},
+  {"id": 3, "question": "What is the security deposit on Unit 4B, Harbor View Tower and when is it refundable?", "type": "single-source-multi-chunk", "covered_by": ["06_property_lease_clause.md"], "pass": null, "note": ""},
+  {"id": 4, "question": "Can Harbor Bean Roasters sublet Unit 4B without permission?", "type": "single-source", "covered_by": ["06_property_lease_clause.md"], "pass": null, "note": ""},
+  {"id": 5, "question": "What interest rate may be awarded on delayed payments under the Riverside Commercial Courts Act?", "type": "single-source", "covered_by": ["04_statute_style_excerpt_fictional.md"], "pass": null, "note": ""},
+  {"id": 6, "question": "When is the next hearing in Arvind Mehta v. Northfield Logistics and who is being examined?", "type": "single-source", "covered_by": ["01_matter_memo_arvind_v_northfield.md"], "pass": null, "note": ""},
+  {"id": 7, "question": "What did Northfield Logistics offer to pay and what did the client instruct to counter?", "type": "single-source", "covered_by": ["05_counsel_notes_settlement.md"], "pass": null, "note": ""},
+  {"id": 8, "question": "How long must written arguments be filed before a listed hearing date?", "type": "single-source", "covered_by": ["03_hearing_notice_template.md"], "pass": null, "note": ""},
+  {"id": 9, "question": "Are settlement talks between Arvind Mehta and Northfield Logistics confidential?", "type": "multi-hop", "covered_by": ["05_counsel_notes_settlement.md"], "pass": null, "note": ""},
+  {"id": 10, "question": "Is arbitration required before the suit between Arvind Mehta and Northfield Logistics can go to trial?", "type": "multi-hop", "covered_by": ["04_statute_style_excerpt_fictional.md", "01_matter_memo_arvind_v_northfield.md"], "pass": null, "note": ""},
+  {"id": 11, "question": "What actions must the employee take during the notice period under the Bluecrest agreement, and what is the non-compete duration?", "type": "multi-chunk", "covered_by": ["02_employment_agreement_excerpt.md"], "pass": null, "note": ""},
+  {"id": 12, "question": "Describe the case status of Lakeview Society v. City Water Board.", "type": "single-source", "covered_by": ["03_hearing_notice_template.md"], "pass": null, "note": ""},
+  {"id": 13, "question": "What is the monthly rent for Unit 4B and how many months deposit is held?", "type": "single-source-multi-chunk", "covered_by": ["06_property_lease_clause.md"], "pass": null, "note": ""},
+  {"id": 14, "question": "Who is the CEO of Acme Corporation?", "type": "out-of-corpus", "covered_by": [], "pass": null, "note": "must return the cannot-find answer with empty citations"}]
