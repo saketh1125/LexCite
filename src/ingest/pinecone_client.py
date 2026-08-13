@@ -24,6 +24,14 @@ class VectorStore:
                 metric="cosine",
                 spec=ServerlessSpec(cloud="aws", region=PINECONE_REGION),
             )
+        else:
+            existing = self.client.describe_index(PINECONE_INDEX_NAME)
+            if getattr(existing, "dimension", EMBEDDING_DIMENSION) != EMBEDDING_DIMENSION:
+                raise RuntimeError(
+                    f"index {PINECONE_INDEX_NAME!r} has dimension "
+                    f"{existing.dimension}, but EMBEDDING_DIMENSION is {EMBEDDING_DIMENSION}. "
+                    "Delete the index or fix the config."
+                )
         return self.client.Index(PINECONE_INDEX_NAME)
 
     def upsert_chunks(self, chunks: list[dict], embeddings: list[list[float]]) -> int:
