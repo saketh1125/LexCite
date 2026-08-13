@@ -5,7 +5,7 @@ FastAPI, **LangGraph**, and **Pinecone**. Every claim in an answer must cite a
 retrieved chunk; the system refuses to guess.
 
 **Repository:** https://github.com/saketh1125/LexCite.git
-
+**Demo Video:** https://drive.google.com/file/d/1DmrLOcMtBIYu6WkWpU44OXJ2TcB_I2UL/view?usp=drive_link
 
 
 ---
