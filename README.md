@@ -185,12 +185,5 @@ API_CONTRACT.md          # request/response schemas
 - The corpus (`gen_ai_takehome_sample_corpus/`) is the provided fictional
   sample — legal-style documents, all names and facts made up.
 
-## What I skipped
 
-- No auth/rate limiting on the API itself (local demo tool — NIM-side limiting
-  is handled).
-- No streaming responses.
-- `POST /ingest` is optional convenience; the CLI is the primary path.
-- Extras from the brief (LangSmith, hybrid search, reranker) not required, not
-  built.
-- Demo video link: placeholder above — to be filled before submission.
+
