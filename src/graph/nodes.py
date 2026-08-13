@@ -111,7 +111,7 @@ def make_nodes(deps: GraphDeps):
         top = chunks[0]["score"] if chunks else 0.0
         return {
             "retrieved_chunks": chunks,
-            "trace": [f"retrieve: query={query!r}, got {len(chunks)} chunks, top score={top}"],
+            "trace": [*state.get("trace", []), f"retrieve: query={query!r}, got {len(chunks)} chunks, top score={top}"],
         }
 
     def grade_chunks(state: AgentState) -> AgentState:
@@ -120,7 +120,7 @@ def make_nodes(deps: GraphDeps):
             return {
                 "grade": "bad",
                 "grade_reason": "no chunks retrieved",
-                "trace": ["grade: bad — no chunks retrieved"],
+                "trace": [*state.get("trace", []), "grade: bad — no chunks retrieved"],
             }
         try:
             raw = deps.chat("You are a retrieval-quality judge.", GRADE_PROMPT.format(
@@ -137,7 +137,7 @@ def make_nodes(deps: GraphDeps):
         return {
             "grade": grade,
             "grade_reason": reason,
-            "trace": [f"grade: {grade} — {reason}"],
+            "trace": [*state.get("trace", []), f"grade: {grade} — {reason}"],
         }
 
     def rewrite_query(state: AgentState) -> AgentState:
@@ -154,7 +154,7 @@ def make_nodes(deps: GraphDeps):
         return {
             "search_query": new,
             "attempt": attempt,
-            "trace": [f"rewrite_query (attempt {attempt}): {old!r} -> {new!r}"],
+            "trace": [*state.get("trace", []), f"rewrite_query (attempt {attempt}): {old!r} -> {new!r}"],
         }
 
     def generate_answer(state: AgentState) -> AgentState:
@@ -180,7 +180,7 @@ def make_nodes(deps: GraphDeps):
         return {
             "answer": answer,
             "citations": cited,
-            "trace": [f"generate_answer: produced answer with {len(cited)} citations"],
+            "trace": [*state.get("trace", []), f"generate_answer: produced answer with {len(cited)} citations"],
         }
 
     def cannot_answer(state: AgentState) -> AgentState:
@@ -188,7 +188,8 @@ def make_nodes(deps: GraphDeps):
             "answer": "I cannot find this in the provided documents.",
             "citations": [],
             "trace": [
-                f"cannot_answer: exhausted {state.get('max_attempts', MAX_ATTEMPTS)} attempts, last grade=bad"
+                *state.get("trace", []),
+                f"cannot_answer: exhausted {state.get('max_attempts', MAX_ATTEMPTS)} attempts, last grade=bad",
             ],
         }
 

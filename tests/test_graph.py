@@ -20,7 +20,7 @@ class FakeDeps:
 
 
 class FakeEmbedder:
-    def embed(self, texts):
+    def embed(self, texts, input_type="passage"):
         return [[0.0] * 8 for _ in texts]
 
 

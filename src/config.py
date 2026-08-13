@@ -15,7 +15,7 @@ PINECONE_REGION = os.getenv("PINECONE_REGION", "us-east-1")
 
 NIM_BASE_URL = os.getenv("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
 NIM_API_KEY = os.getenv("NIM_API_KEY", "")
-NIM_MODEL = os.getenv("NIM_MODEL", "deepseek-ai/deepseek-v4-flash")
+NIM_MODEL = os.getenv("NIM_MODEL", "meta/muse-glimmer-30b")
 NIM_RPM_LIMIT = int(os.getenv("NIM_RPM_LIMIT", "40"))
 REASONING_EFFORT = os.getenv("REASONING_EFFORT", "")
 
