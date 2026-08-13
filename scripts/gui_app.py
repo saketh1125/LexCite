@@ -1,3 +1,4 @@
+import argparse
 import json
 import subprocess
 import threading
@@ -8,7 +9,7 @@ BASE_URL_DEFAULT = "http://127.0.0.1:8000"
 
 
 class LexCiteGUI:
-    def __init__(self, root: tk.Tk) -> None:
+    def __init__(self, root: tk.Tk, base_url: str = BASE_URL_DEFAULT) -> None:
         self.root = root
         root.title("LexCite — grounded Q&A over a legal corpus")
         root.geometry("980x680")
@@ -17,7 +18,7 @@ class LexCiteGUI:
         top = tk.Frame(root, padx=12, pady=10)
         top.pack(fill="x")
         tk.Label(top, text="Server base URL:").pack(side="left")
-        self.base_var = tk.StringVar(value=BASE_URL_DEFAULT)
+        self.base_var = tk.StringVar(value=base_url)
         tk.Entry(top, textvariable=self.base_var, width=40).pack(side="left", padx=8)
 
         self.health_btn = tk.Button(top, text="Health", command=self.on_health)
@@ -128,8 +129,11 @@ class LexCiteGUI:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="LexCite desktop GUI")
+    parser.add_argument("base_url", nargs="?", default=BASE_URL_DEFAULT, help="server base URL")
+    args = parser.parse_args()
     root = tk.Tk()
-    LexCiteGUI(root)
+    LexCiteGUI(root, args.base_url)
     root.mainloop()
 
 

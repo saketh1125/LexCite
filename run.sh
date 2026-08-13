@@ -39,4 +39,11 @@ echo "    Everything need a key? Run: .venv/bin/python scripts/ingest_cli.py"
 echo "    Stop with Ctrl+C."
 echo
 
+if [ -z "${NO_GUI:-}" ] && [ -n "${DISPLAY:-}" ]; then
+  echo "==> Opening the tkinter GUI (disable with NO_GUI=1 ./run.sh)"
+  nohup .venv/bin/python scripts/gui_app.py "http://$HOST:$PORT" >/dev/null 2>&1 &
+elif [ -n "${NO_GUI:-}" ]; then
+  echo "(GUI skipped: NO_GUI=1)"
+fi
+
 exec .venv/bin/uvicorn src.api.server:app --host "$HOST" --port "$PORT"
