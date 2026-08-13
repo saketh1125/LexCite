@@ -20,7 +20,8 @@ NIM_RPM_LIMIT = int(os.getenv("NIM_RPM_LIMIT", "40"))
 REASONING_EFFORT = os.getenv("REASONING_EFFORT", "")
 
 # Embeddings via NVIDIA NIM too; EMBEDDING_* only needed to override NIM defaults.
-EMBEDDING_BASE_URL = os.getenv("EMBEDDING_BASE_URL") or NIM_BASE_URL
+# EMBEDDING_BASE_URL may be the full endpoint (.../v1/embeddings); the SDK root is derived.
+EMBEDDING_BASE_URL = (os.getenv("EMBEDDING_BASE_URL") or f"{NIM_BASE_URL}/embeddings").removesuffix("/embeddings")
 EMBEDDING_API_KEY = os.getenv("EMBEDDING_API_KEY") or NIM_API_KEY
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "nvidia/llama-nemotron-embed-1b-v2")
 EMBEDDING_DIMENSION = int(os.getenv("EMBEDDING_DIMENSION", "2048"))
