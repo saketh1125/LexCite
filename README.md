@@ -6,9 +6,7 @@ retrieved chunk; the system refuses to guess.
 
 **Repository:** https://github.com/saketh1125/LexCite.git
 
-**Demo video (5–10 min):** [PASTE_VIDEO_LINK_HERE] — install, ingest, start the
-API, call `/ask`, a few good answers with citations, one question the docs
-cannot answer, and a walkthrough of the LangGraph layout below.
+
 
 ---
 
