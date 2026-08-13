@@ -106,7 +106,7 @@ def _numbered(chunks: list[dict]) -> str:
 def make_nodes(deps: GraphDeps):
     def retrieve(state: AgentState) -> AgentState:
         query = state["search_query"]
-        embedding = deps.embedder.embed([query])[0]
+        embedding = deps.embedder.embed([query], input_type="query")[0]
         chunks = deps.vectorstore.query(embedding, TOP_K)
         top = chunks[0]["score"] if chunks else 0.0
         return {

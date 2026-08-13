@@ -20,12 +20,12 @@ class Embedder:
         self.client = OpenAI(api_key=EMBEDDING_API_KEY, base_url=EMBEDDING_BASE_URL)
         self.rate_limiter = rate_limiter or _default_limiter
 
-    def embed(self, texts: list[str]) -> list[list[float]]:
+    def embed(self, texts: list[str], input_type: str = "passage") -> list[list[float]]:
         vectors: list[list[float]] = []
         for i in range(0, len(texts), BATCH_SIZE):
             batch = texts[i : i + BATCH_SIZE]
             self.rate_limiter.acquire()
-            kwargs = {}
+            kwargs = {"extra_body": {"input_type": input_type}}
             if EMBEDDING_DIMENSION != NATIVE_DIMENSION:
                 kwargs["dimensions"] = EMBEDDING_DIMENSION
             resp = self.client.embeddings.create(model=EMBEDDING_MODEL, input=batch, **kwargs)

@@ -25,7 +25,8 @@ def test_dimensions_param_sent_when_reduced():
         e = Embedder(rate_limiter=embedder_mod.RateLimiter(0))
         e.client = stub
         vectors = e.embed(["a", "b"])
-        assert stub.calls[0][2] == {"dimensions": 1024}
+        assert stub.calls[0][2]["dimensions"] == 1024
+        assert stub.calls[0][2]["extra_body"]["input_type"] == "passage"
         assert all(len(v) == 1024 for v in vectors)
     finally:
         embedder_mod.EMBEDDING_DIMENSION = old
@@ -39,7 +40,8 @@ def test_no_dimensions_param_at_native_size():
         e = Embedder(rate_limiter=embedder_mod.RateLimiter(0))
         e.client = stub
         e.embed(["a"])
-        assert stub.calls[0][2] == {}
+        assert "dimensions" not in stub.calls[0][2]
+        assert "input_type" not in stub.calls[0][2] or stub.calls[0][2]["extra_body"]["input_type"] == "passage"
     finally:
         embedder_mod.EMBEDDING_DIMENSION = old
 
