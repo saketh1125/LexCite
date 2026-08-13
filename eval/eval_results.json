@@ -1,0 +1,265 @@
+[
+  {
+    "id": 1,
+    "question": "What is the notice period in Priya Nambiar's employment agreement?",
+    "answer": "The employment agreement for Priya Nambiar provides that either party may end this agreement by giving **60 days** written notice.",
+    "citations": [
+      {
+        "chunk_id": "68f8cfc033ddd2c3",
+        "source_file": "02_employment_agreement_excerpt.md",
+        "text_snippet": "# Employment agreement excerpt — Bluecrest Analytics (fiction)\n\n**Employee:** Priya Nambiar  \n**Employer:** Bluecrest Analytics LLP"
+      },
+      {
+        "chunk_id": "c5d17185ae6845fa",
+        "source_file": "02_employment_agreement_excerpt.md",
+        "text_snippet": "# Employment agreement excerpt — Bluecrest Analytics (fiction)\n\n## Notice period\n\nEither party may end this agreement by giving **60 days** written notice. During notice, the employee must hand over all laptops, badges, and source code access."
+      }
+    ],
+    "trace": [
+      "retrieve: query=\"What is the notice period in Priya Nambiar's employment agreement?\", got 6 chunks, top score=0.402894914",
+      "grade: good — Chunk 1 identifies Priya Nambiar as the employee in the Bluecrest Analytics employment agreement excerpt and chunk 2 from the same excerpt states the notice period is 60 days written notice.",
+      "generate_answer: produced answer with 2 citations"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "How long after leaving Bluecrest Analytics may Priya Nambiar not work for a competitor?",
+    "answer": "The employment agreement excerpt lists Priya Nambiar as the Employee [1]. The Non-compete provision states:\n\n“For **12 months** after leaving, the employee may not work for a direct competitor in the same city where Bluecrest has an office, if the new role uses the same client list supplied by Bluecrest.” [2]",
+    "citations": [
+      {
+        "chunk_id": "68f8cfc033ddd2c3",
+        "source_file": "02_employment_agreement_excerpt.md",
+        "text_snippet": "# Employment agreement excerpt — Bluecrest Analytics (fiction)\n\n**Employee:** Priya Nambiar  \n**Employer:** Bluecrest Analytics LLP"
+      },
+      {
+        "chunk_id": "63055ac2c8944fd1",
+        "source_file": "02_employment_agreement_excerpt.md",
+        "text_snippet": "# Employment agreement excerpt — Bluecrest Analytics (fiction)\n\n## Non-compete\n\nFor **12 months** after leaving, the employee may not work for a direct competitor in the same city where Bluecrest has an office, if the new role uses the same client list supplied by Bluecrest."
+      }
+    ],
+    "trace": [
+      "retrieve: query='How long after leaving Bluecrest Analytics may Priya Nambiar not work for a competitor?', got 6 chunks, top score=0.464267015",
+      "grade: good — Chunk 2 directly states the non-compete period is 12 months after leaving for Priya Nambiar.",
+      "generate_answer: produced answer with 2 citations"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What is the security deposit on Unit 4B, Harbor View Tower and when is it refundable?",
+    "answer": "Security deposit held for Unit 4B, Harbor View Tower: **₹1,35,000** (three months’ rent) [1]. \nDeposit refundable within **45 days** of handover if no damage beyond normal wear [1].",
+    "citations": [
+      {
+        "chunk_id": "5520a260347b23d0",
+        "source_file": "06_property_lease_clause.md",
+        "text_snippet": "# Lease excerpt — Unit 4B, Harbor View Tower (fiction)\n\n## Rent and deposit\n\nMonthly rent: **₹45,000**. Security deposit held: **₹1,35,000** (three months’ rent). Deposit refundable within **45 days** of handover if no damage beyond normal wear."
+      }
+    ],
+    "trace": [
+      "retrieve: query='What is the security deposit on Unit 4B, Harbor View Tower and when is it refundable?', got 6 chunks, top score=0.555818737",
+      "grade: good — Chunk 1 directly states the security deposit is ₹1,35,000 and it is refundable within 45 days of handover for Unit 4B, Harbor View Tower.",
+      "generate_answer: produced answer with 1 citations"
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Can Harbor Bean Roasters sublet Unit 4B without permission?",
+    "answer": "No. The lease excerpt for Unit 4B provides that “Subletting is **not allowed** without written consent of the lessor.” [1] The lease lists the Lessee as Harbor Bean Roasters OPC. [2]",
+    "citations": [
+      {
+        "chunk_id": "5584f630f3083a0e",
+        "source_file": "06_property_lease_clause.md",
+        "text_snippet": "# Lease excerpt — Unit 4B, Harbor View Tower (fiction)\n\n## Subletting\n\nSubletting is **not allowed** without written consent of the lessor."
+      },
+      {
+        "chunk_id": "8cc62ddbddde5f94",
+        "source_file": "06_property_lease_clause.md",
+        "text_snippet": "# Lease excerpt — Unit 4B, Harbor View Tower (fiction)\n\n**Lessor:** Kiran Patel  \n**Lessee:** Harbor Bean Roasters OPC"
+      }
+    ],
+    "trace": [
+      "retrieve: query='Can Harbor Bean Roasters sublet Unit 4B without permission?', got 6 chunks, top score=0.464081436",
+      "grade: good — Chunk 1 states subletting is not allowed without written consent of the lessor for Unit 4B and chunk 2 identifies Harbor Bean Roasters OPC as the lessee.",
+      "generate_answer: produced answer with 2 citations"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What interest rate may be awarded on delayed payments under the Riverside Commercial Courts Act?",
+    "answer": "Under the Riverside Commercial Courts Act, Section 22 — Interest on delayed payments provides:\n\nWhere a contract fixes no rate, simple interest at **9% per year** may be awarded on admitted dues from the date of demand until payment. [1]",
+    "citations": [
+      {
+        "chunk_id": "49fa2e19c50915b4",
+        "source_file": "04_statute_style_excerpt_fictional.md",
+        "text_snippet": "# Fictional statute excerpt — “Riverside Commercial Courts Act (sample text only)”\n\n**Section 14 — Mediation before trial**\n\nA commercial suit above five lakh fictional rupees must go to **mandatory mediation** for 30 days unless both parties waive in writing.\n\n**Section 22 — Interest on delayed payments**\n\nWhere a contract fixes no rate, simple interest at **9% per year** may be awarded on admitted dues from the date of demand until payment."
+      }
+    ],
+    "trace": [
+      "retrieve: query='What interest rate may be awarded on delayed payments under the Riverside Commercial Courts Act?', got 6 chunks, top score=0.509354115",
+      "grade: good — Chunk [1] directly states Section 22 allows simple interest at 9% per year on delayed payments where contract fixes no rate.",
+      "generate_answer: produced answer with 1 citations"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "When is the next hearing in Arvind Mehta v. Northfield Logistics and who is being examined?",
+    "answer": "The matter is Arvind Mehta v. Northfield Logistics Pvt. Ltd. [2]\n\nThe next hearing is 15 August 2025 — witness for the plaintiff (billing head) to be examined. [3]",
+    "citations": [
+      {
+        "chunk_id": "478701a80e854410",
+        "source_file": "01_matter_memo_arvind_v_northfield.md",
+        "text_snippet": "# Internal memo — Civil Suit No. CV-2024-8812 (fiction)\n\n**Matter:** Arvind Mehta v. Northfield Logistics Pvt. Ltd.  \n**Court:** District Court, Riverside Bench (fictional)  \n**Stage:** Evidence"
+      },
+      {
+        "chunk_id": "bca4535ff1ce5112",
+        "source_file": "01_matter_memo_arvind_v_northfield.md",
+        "text_snippet": "# Internal memo — Civil Suit No. CV-2024-8812 (fiction)\n\n## Next hearing\n\n15 August 2025 — witness for the plaintiff (billing head) to be examined."
+      }
+    ],
+    "trace": [
+      "retrieve: query='When is the next hearing in Arvind Mehta v. Northfield Logistics and who is being examined?', got 6 chunks, top score=0.360808253",
+      "grade: good — Chunk 3 directly states the next hearing is 15 August 2025 with the plaintiff's billing head witness to be examined.",
+      "generate_answer: produced answer with 2 citations"
+    ]
+  },
+  {
+    "id": 7,
+    "question": "What did Northfield Logistics offer to pay and what did the client instruct to counter?",
+    "answer": "Northfield offered to pay **70% of open invoices** if Arvind drops the damage counterclaim [1]. \nClient instruction: counter at **85%** and keep witness for the next hearing if no agreement by 1 August 2025 [1].",
+    "citations": [
+      {
+        "chunk_id": "69a0961030ea50b6",
+        "source_file": "05_counsel_notes_settlement.md",
+        "text_snippet": "# Counsel notes — settlement call (fiction)\n\n**Matter:** Arvind Mehta v. Northfield Logistics\n\nNorthfield offered to pay **70% of open invoices** if Arvind drops the damage counterclaim. Client instruction: counter at **85%** and keep witness for the next hearing if no agreement by 1 August 2025.\n\nReminder: settlement talks are **without prejudice** unless a signed term sheet exists."
+      }
+    ],
+    "trace": [
+      "retrieve: query='What did Northfield Logistics offer to pay and what did the client instruct to counter?', got 6 chunks, top score=0.465371728",
+      "grade: good — Chunk 1 directly states Northfield offered 70% of open invoices and the client instructed to counter at 85%.",
+      "generate_answer: produced answer with 1 citations"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "How long must written arguments be filed before a listed hearing date?",
+    "answer": "Parties are directed to file written arguments seven clear days before the listed date.",
+    "citations": [
+      {
+        "chunk_id": "d2404b3f99ced0e1",
+        "source_file": "03_hearing_notice_template.md",
+        "text_snippet": "# Hearing notice — template notes (fiction)\n\n## Standard wording\n\nParties are directed to file written arguments **seven clear days** before the listed date. Late filings may not be read without leave of court."
+      }
+    ],
+    "trace": [
+      "retrieve: query='How long must written arguments be filed before a listed hearing date?', got 6 chunks, top score=0.596368849",
+      "grade: good — Chunk 1 directly states written arguments must be filed seven clear days before the listed hearing date.",
+      "generate_answer: produced answer with 1 citations"
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Are settlement talks between Arvind Mehta and Northfield Logistics confidential?",
+    "answer": "I cannot find this in the provided documents.",
+    "citations": [],
+    "trace": [
+      "retrieve: query='Are settlement talks between Arvind Mehta and Northfield Logistics confidential?', got 6 chunks, top score=0.459666193",
+      "grade: bad — Chunk 1 mentions talks are without prejudice, which addresses admissibility not confidentiality, so no chunk directly states whether the talks are confidential.",
+      "rewrite_query (attempt 1): 'Are settlement talks between Arvind Mehta and Northfield Logistics confidential?' -> 'Are settlement discussions between Arvind Mehta and Northfield Logistics private confidential or protected by without prejudice privilege'",
+      "retrieve: query='Are settlement discussions between Arvind Mehta and Northfield Logistics private confidential or protected by without prejudice privilege', got 6 chunks, top score=0.475239635",
+      "grade: bad — The chunks mention settlement talks are without prejudice but do not directly state whether the talks are confidential.",
+      "rewrite_query (attempt 2): 'Are settlement discussions between Arvind Mehta and Northfield Logistics private confidential or protected by without prejudice privilege' -> 'Arvind Mehta Northfield Logistics settlement negotiations confidentiality private without prejudice privilege non-disclosure obligation'",
+      "retrieve: query='Arvind Mehta Northfield Logistics settlement negotiations confidentiality private without prejudice privilege non-disclosure obligation', got 6 chunks, top score=0.465128273",
+      "grade: bad — No chunk directly addresses confidentiality of the settlement talks, only that they are without prejudice.",
+      "cannot_answer: exhausted 2 attempts, last grade=bad"
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Is arbitration required before the suit between Arvind Mehta and Northfield Logistics can go to trial?",
+    "answer": "I cannot find this in the provided documents.",
+    "citations": [],
+    "trace": [
+      "retrieve: query='Is arbitration required before the suit between Arvind Mehta and Northfield Logistics can go to trial?', got 6 chunks, top score=0.398446113",
+      "grade: bad — No chunk mentions arbitration; the retrieved material only discusses mediation, settlement and hearing scheduling, not an arbitration requirement.",
+      "rewrite_query (attempt 1): 'Is arbitration required before the suit between Arvind Mehta and Northfield Logistics can go to trial?' -> 'Does the Arvind Mehta v Northfield Logistics case require mediation or settlement before trial'",
+      "retrieve: query='Does the Arvind Mehta v Northfield Logistics case require mediation or settlement before trial', got 6 chunks, top score=0.440628856",
+      "grade: bad — No chunk mentions arbitration; only mandatory mediation is referenced, so arbitration requirement cannot be determined.",
+      "rewrite_query (attempt 2): 'Does the Arvind Mehta v Northfield Logistics case require mediation or settlement before trial' -> 'Arvind Mehta v Northfield Logistics mandatory pre-trial mediation requirement'",
+      "retrieve: query='Arvind Mehta v Northfield Logistics mandatory pre-trial mediation requirement', got 6 chunks, top score=0.399012417",
+      "grade: bad — No chunk mentions arbitration; the retrieved material only discusses mandatory mediation and trial stage, not an arbitration requirement.",
+      "cannot_answer: exhausted 2 attempts, last grade=bad"
+    ]
+  },
+  {
+    "id": 11,
+    "question": "What actions must the employee take during the notice period under the Bluecrest agreement, and what is the non-compete duration?",
+    "answer": "During the notice period, the employee must hand over all laptops, badges, and source code access [1].\n\nThe non-compete duration is 12 months after leaving [2].",
+    "citations": [
+      {
+        "chunk_id": "c5d17185ae6845fa",
+        "source_file": "02_employment_agreement_excerpt.md",
+        "text_snippet": "# Employment agreement excerpt — Bluecrest Analytics (fiction)\n\n## Notice period\n\nEither party may end this agreement by giving **60 days** written notice. During notice, the employee must hand over all laptops, badges, and source code access."
+      },
+      {
+        "chunk_id": "63055ac2c8944fd1",
+        "source_file": "02_employment_agreement_excerpt.md",
+        "text_snippet": "# Employment agreement excerpt — Bluecrest Analytics (fiction)\n\n## Non-compete\n\nFor **12 months** after leaving, the employee may not work for a direct competitor in the same city where Bluecrest has an office, if the new role uses the same client list supplied by Bluecrest."
+      }
+    ],
+    "trace": [
+      "retrieve: query='What actions must the employee take during the notice period under the Bluecrest agreement, and what is the non-compete duration?', got 6 chunks, top score=0.46679464",
+      "grade: good — Chunk 1 specifies notice-period hand-over actions and Chunk 2 gives the 12-month non-compete duration.",
+      "generate_answer: produced answer with 2 citations"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Describe the case status of Lakeview Society v. City Water Board.",
+    "answer": "Case CV-2023-4401, Lakeview Society v. City Water Board, is listed for interim relief on water supply and is **adjourned** to 22 September 2025. [1]",
+    "citations": [
+      {
+        "chunk_id": "21c1408b0d56d39f",
+        "source_file": "03_hearing_notice_template.md",
+        "text_snippet": "# Hearing notice — template notes (fiction)\n\n## Today’s sample listing\n\nCase CV-2024-8812 (Arvind Mehta v. Northfield Logistics): arguments on invoice set-off. **Time:** 11:00 a.m.  \nCase CV-2023-4401 (Lakeview Society v. City Water Board): interim relief on water supply — **adjourned** to 22 September 2025."
+      }
+    ],
+    "trace": [
+      "retrieve: query='Describe the case status of Lakeview Society v. City Water Board.', got 6 chunks, top score=0.282004178",
+      "grade: good — Chunk 1 directly states the case is adjourned to 22 September 2025 for interim relief on water supply.",
+      "generate_answer: produced answer with 1 citations"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "What is the monthly rent for Unit 4B and how many months deposit is held?",
+    "answer": "Monthly rent for Unit 4B is ₹45,000 [1]. Security deposit held is ₹1,35,000, which is three months’ rent [1].",
+    "citations": [
+      {
+        "chunk_id": "5520a260347b23d0",
+        "source_file": "06_property_lease_clause.md",
+        "text_snippet": "# Lease excerpt — Unit 4B, Harbor View Tower (fiction)\n\n## Rent and deposit\n\nMonthly rent: **₹45,000**. Security deposit held: **₹1,35,000** (three months’ rent). Deposit refundable within **45 days** of handover if no damage beyond normal wear."
+      }
+    ],
+    "trace": [
+      "retrieve: query='What is the monthly rent for Unit 4B and how many months deposit is held?', got 6 chunks, top score=0.481759727",
+      "grade: good — Chunk 1 directly states the monthly rent is ₹45,000 and the security deposit held is ₹1,35,000, which is three months’ rent.",
+      "generate_answer: produced answer with 1 citations"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Who is the CEO of Acme Corporation?",
+    "answer": "I cannot find this in the provided documents.",
+    "citations": [],
+    "trace": [
+      "retrieve: query='Who is the CEO of Acme Corporation?', got 6 chunks, top score=0.117543437",
+      "grade: bad — No chunk mentions Acme Corporation or its CEO.",
+      "rewrite_query (attempt 1): 'Who is the CEO of Acme Corporation?' -> 'Acme Corp chief executive officer'",
+      "retrieve: query='Acme Corp chief executive officer', got 6 chunks, top score=0.12368878",
+      "grade: bad — None of the retrieved chunks mention Acme Corporation or its CEO.",
+      "rewrite_query (attempt 2): 'Acme Corp chief executive officer' -> 'Acme Corporation current chief executive officer'",
+      "retrieve: query='Acme Corporation current chief executive officer', got 6 chunks, top score=0.101908371",
+      "grade: bad — No chunk mentions Acme Corporation or its CEO.",
+      "cannot_answer: exhausted 2 attempts, last grade=bad"
+    ]
+  }
+]

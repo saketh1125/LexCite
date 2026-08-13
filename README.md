@@ -22,8 +22,18 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env        # fill in Pinecone and NVIDIA NIM keys (one key covers chat + embeddings)
 python scripts/ingest_cli.py
-uvicorn src.api.server:app --reload
+./run.sh                    # or: uvicorn src.api.server:app --reload
 ```
+
+Or skip the manual steps: `./run.sh` creates the venv, installs requirements,
+and starts the server for you (it warns but continues if `.env` is missing).
+
+## Demo video
+
+[Watch the demo (5–10 min)](PASTE_VIDEO_LINK_HERE) — install, ingest, start the
+API, call `/ask` with curl, a few good answers with citations, one question the
+docs cannot answer, and a walkthrough of the LangGraph layout
+(`docs/langgraph.md`).
 
 Then:
 
@@ -55,15 +65,37 @@ eval/test_cases.json     # evaluation questions + notes
 docs/langgraph.md        # node inventory + diagram
 ```
 
+## Pinecone checklist
+
+- **Env vars** (in `.env.example`): `PINECONE_API_KEY`, `PINECONE_REGION`,
+  `PINECONE_INDEX_NAME` (default `lexcite-index`), `PINECONE_NAMESPACE`
+  (default `default`).
+- **Index creation**: automatic — the first ingest run creates
+  `lexcite-index` (serverless, cosine, dimension = `EMBEDDING_DIMENSION`).
+  No manual console step needed. If an index with that name already exists but
+  has a different dimension, the client fails loudly with an instruction
+  rather than corrupting data.
+- **Ingest twice?** Nothing changes: chunk IDs are deterministic
+  (`sha256(source_file::chunk_index)`), so Pinecone `upsert` overwrites by ID.
+  Verified: running the CLI twice back-to-back stays at 17 vectors (no
+  duplicates). Use `--reset` (or `POST /ingest` equivalent) only when the
+  corpus itself changed shape — it deletes the namespace first.
+- **Verified with real Pinecone**: the ingest CLI reports the vector count
+  fetched from Pinecone's own `describe_index_stats`, not a local counter
+  (7 files → 17 chunks → 17 vectors).
+
 ## Design notes
 
 - **Chunk size 800 / overlap 120 characters** (env-configurable): the corpus
-  is clause-structured legal prose, and paragraphs tend to be 100–300 chars,
-  so a paragraph-packing chunker keeps whole clauses together while 800 chars
-  leaves room for multi-clause sections; the 120-char overlap (≈15%) covers
-  sentences that straddle a boundary. Character-based rather than
-  token-based sizing because the corpus and embeddings cost are small and the
-  boundary logic is deterministic and idempotent.
+  is clause-structured legal prose, so the chunker splits on blank lines into
+  sections (heading + body), packs paragraphs within a section, and carries
+  the document title into every chunk so facts stay attached to their context
+  (a deposit figure is only meaningful alongside "Unit 4B, Harbor View
+  Tower"). Oversized sections are hard-split at sentence boundaries with
+  120 chars of overlap. Character-based rather than token-based sizing
+  because the corpus and embeddings cost are small and the boundary logic is
+  deterministic and idempotent. The section-packing was added after the eval
+  showed whole-paragraph chunks left headings detached from their bodies.
 - **Citations are built by code, not by the model**: the model lists which
   chunk numbers it used; code cross-references that list against the actually
   retrieved chunks. A model-fabricated chunk id is dropped and logged, never

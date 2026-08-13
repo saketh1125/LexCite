@@ -10,10 +10,11 @@ SAMPLE = "First paragraph.\n\nSecond paragraph with **clause** info.\n"
 
 def test_paragraph_packing_and_ids():
     chunks = chunk_text(SAMPLE, "test.md")
-    assert len(chunks) == 2
+    assert len(chunks) == 1
     assert chunks[0]["source_file"] == "test.md"
     assert chunks[0]["chunk_index"] == 0
-    assert chunks[0]["char_end"] == chunks[1]["char_start"]
+    assert "First paragraph." in chunks[0]["text"]
+    assert "Second paragraph" in chunks[0]["text"]
 
 
 def test_deterministic_ids_and_crlf():
@@ -41,6 +42,21 @@ def test_corpus_chunks_within_size():
     assert all(len(c["text"]) <= 810 for c in all_chunks)
     ids = [c["chunk_id"] for c in all_chunks]
     assert len(ids) == len(set(ids))
+
+
+def test_headings_stay_with_their_section():
+    raw = (
+        "# Lease excerpt — Unit 4B, Harbor View Tower (fiction)\n\n"
+        "**Lessor:** Kiran Patel\n\n"
+        "## Rent and deposit\n\n"
+        "Monthly rent: **₹45,000**. Security deposit held: **₹1,35,000**.\n\n"
+        "## Subletting\n\n"
+        "Subletting is **not allowed**.\n"
+    )
+    chunks = chunk_text(raw, "lease.md")
+    assert len(chunks) == 3
+    assert "Unit 4B" in chunks[1]["text"] and "₹1,35,000" in chunks[1]["text"]
+    assert "Unit 4B" in chunks[2]["text"] and "Subletting" in chunks[2]["text"]
 
 
 if __name__ == "__main__":
