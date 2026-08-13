@@ -44,6 +44,13 @@ curl -s localhost:8000/ask \
   -d '{"question": "What is the notice period in Priya Nambiar's agreement?"}'
 ```
 
+Prefer buttons over curl? A small tkinter GUI wraps the same endpoints and
+shows the exact curl command it runs:
+
+```bash
+.venv/bin/python scripts/gui_app.py     # Health / Ingest / Ask buttons
+```
+
 ## API
 
 See `API_CONTRACT.md` for schemas. Summary:
