@@ -74,11 +74,11 @@ Rules:
 
 class GraphDeps:
     def __init__(self) -> None:
-        self.embedder = Embedder()
+        self.rate_limiter = RateLimiter(NIM_RPM_LIMIT)
+        self.embedder = Embedder(rate_limiter=self.rate_limiter)
         self.vectorstore = VectorStore()
         self.llm = OpenAI(api_key=NIM_API_KEY, base_url=NIM_BASE_URL)
         self.model = NIM_MODEL
-        self.rate_limiter = RateLimiter(NIM_RPM_LIMIT)
 
     def chat(self, system: str, user: str) -> str:
         self.rate_limiter.acquire()
